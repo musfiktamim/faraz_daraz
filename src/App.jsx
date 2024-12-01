@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Navbar from './nav/Navbar'
 import Fotbar from './nav/Fotbar'
 import Flashsale from './pages/Flashsale'
+import Productshownpage from './pages/Productshownpage'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/flash_sale' element={<Flashsale />} />
+        <Route path='/detailes_page' element={<Productshownpage />} />
       </Routes>
     </BrowserRouter>
   )

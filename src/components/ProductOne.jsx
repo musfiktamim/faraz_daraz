@@ -1,11 +1,12 @@
 import React from 'react'
 import cube from "../assets/images/cube.webp"
+import { NavLink } from 'react-router-dom'
 
 function ProductOne({isProduct=true,isDiscount=true}) {
   const percentage=3
   // h-[280px]
   return (
-    <div className='w-[190px] h-auto  hover:shadow-lg hover:border-b hover:border-l hover:border-r border-gray-300 mb-2 shadow-gray-500'>
+    <NavLink to={"/detailes_page"} state={1} className='w-[190px] h-auto  hover:shadow-lg hover:border-b hover:border-l hover:border-r border-gray-300 mb-2 shadow-gray-500'>
       <img src={cube} className='w-full h-[190px]' alt="" />
       <div className='h-[40px] w-full px-1  overflow-clip'>
         <p className=' font-semibold hover:text-[#F85606] cursor-pointer transition duration-200 select-none hover:underline break-words font-[Roboto, "Helvetica Neue", Helvetica, Tahoma, Arial, "PingFang SC", "Microsoft YaHei", sans-serif] text-sm'>Baseus Bowie MA10 Wireless IPX6 Waterproof Bluetooth Earphone With Active Noise Cancellation Super Long Battery Life Wireless Earbuds Premium Sound With 4 ENC Mics</p>
@@ -24,7 +25,7 @@ function ProductOne({isProduct=true,isDiscount=true}) {
         }
       </div>
       
-    </div>
+    </NavLink>
   )
 }
 
