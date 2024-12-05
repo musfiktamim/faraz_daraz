@@ -5,15 +5,15 @@ import { NavLink } from 'react-router-dom'
 function CategoriesBoxes({item}) {
     const [hov,setHov] = useState(false)
   return (
-    <div>
+    <div className='bg-white'>
     {
         item.child?
-        <button className='flex transition duration-500 items-center w-full hover:text-[#F85606] justify-between text-xs px-2 py-2 gap-5 hover:bg-blue-50' onMouseMove={e=>{setHov(true)}} onMouseLeave={e=>setHov(false)}>
+        <button className='flex transition bg-white duration-500 items-center w-full hover:text-[#F85606] justify-between text-xs px-2 py-2 gap-5 hover:bg-blue-50' onMouseMove={e=>{setHov(true)}} onMouseLeave={e=>setHov(false)}>
             <p className='font-light'>{item.main}</p>
             {
                 hov?<IoIosArrowForward size={"1rem"} className='transition duration-700' />:null
             }
-        </button>:<NavLink to={"/h"} className='flex transition duration-500 items-center hover:text-[#F85606] justify-between text-xs px-2 py-2 hover:bg-blue-50'>
+        </button>:<NavLink to={"/h"} className='flex transition bg-white duration-500 items-center hover:text-[#F85606] justify-between text-xs px-2 py-2 hover:bg-blue-50'>
             <p>{item.main}</p>
         </NavLink>
     }
