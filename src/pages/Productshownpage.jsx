@@ -10,6 +10,8 @@ import { MdOutlineFavoriteBorder } from 'react-icons/md'
 import black from "../assets/images/color-black.webp"
 import { IoMdCheckmark } from 'react-icons/io'
 import { RiAddFill, RiSubtractFill } from 'react-icons/ri'
+import { BiInfoCircle } from 'react-icons/bi'
+import { ImXing } from 'react-icons/im'
 
 function Productshownpage() {
 
@@ -17,6 +19,7 @@ function Productshownpage() {
   let isMall = true;
   let isdis = [true,57];
   let prize = 1200; 
+  const [isInfoShow,setIsInfoShow] = useState(false)
 
   const [qty,setQty] = useState(1)
 
@@ -166,8 +169,45 @@ function Productshownpage() {
                   </div>
 
                 </div>
-                <div className='md:w-1/3 md:flex hidden bg-red-600 h-full'>
-
+                <div className='md:w-1/3 md:flex hidden h-full'>
+                    <div className='w-full h-7 items-center border relative flex justify-between'>
+                        <p className='text-sm text-gray-500'>Delivery Options </p>
+                        <button onClick={()=>setIsInfoShow(!isInfoShow)}>
+                          <BiInfoCircle />
+                        </button>
+                        {/* info dialog  */}
+                          <div className={`absolute transition-[height] ${!isInfoShow?"h-0 overflow-hidden":"h-auto px-4 pt-6 overflow-hidden border"} right-0 w-[200%] top-7 bg-white shadow-sm shadow-[#E1E1E1]`}>
+                            <h1 className='text-xl'>Delivery Options</h1>
+                            <div className='h-20 mt-3 gap-x-4 flex w-full'>
+                              <ImXing size={"1.5rem"} />
+                              <div className='h-full flex flex-col justify-between'>
+                                {/* find more */}
+                                <div className='flex flex-col gap-y-4'>
+                                  <p className='flex text-sm gap-x-1'>
+                                    <p className=' flex-nowrap font-bold'>Standard Delivery:</p> Enjoy delivery of your order directly to the doorstep!
+                                  </p>
+                                  <a target='_blank' className='text-blue-500 font-sans' href="https://helpcenter.daraz.com.bd/page/home?spm=a2a0e.pdp_revamp.0.0.53121ab5FcWcFu&pageId=25">
+                                  Find out more
+                                  </a>
+                                </div>
+                                <div>
+                                </div>
+                              </div>
+                            </div>
+                            {/* cash on dalivery */}
+                            <div className='h-auto mt-3 gap-x-4 flex w-full'>
+                              <ImXing size={"1.5rem"} />
+                                {/* find more */}
+                                <div className='flex flex-col gap-y-4'>
+                                  <p className='flex text-sm gap-x-1'>
+                                    <p className=' flex-nowrap font-bold'>Standard Delivery:</p> Enjoy delivery of your order directly to the doorstep!
+                                  </p>
+                                <div>
+                                </div>
+                              </div>
+                            </div>      
+                          </div>
+                    </div>
                 </div>
           </div>
       </div>
