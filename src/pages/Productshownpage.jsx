@@ -7,6 +7,9 @@ import { AiOutlineFastBackward, AiOutlineFastForward } from 'react-icons/ai'
 import { SiSharex } from 'react-icons/si'
 import { IoShareSocial } from 'react-icons/io5'
 import { MdOutlineFavoriteBorder } from 'react-icons/md'
+import black from "../assets/images/color-black.webp"
+import { IoMdCheckmark } from 'react-icons/io'
+import { RiAddFill, RiSubtractFill } from 'react-icons/ri'
 
 function Productshownpage() {
 
@@ -14,6 +17,8 @@ function Productshownpage() {
   let isMall = true;
   let isdis = [true,57];
   let prize = 1200; 
+
+  const [qty,setQty] = useState(1)
 
   const items = [1,2,3,4,5,6,7,8,9,10,11,12]
   const [fottrans,setFottrans] = useState(0);
@@ -56,7 +61,7 @@ function Productshownpage() {
                   </div>:null  
                   }
                   {/* name  */}
-                  <div className='w-full max-h-32 mt-2 overflow-clip border'>
+                  <div className='w-full max-h-32 mt-2 overflow-clip'>
                     <p className='text-2xl'>
                       Kiss Beauty Lip Serum Essence Ultra Moisturising Rose 5ml
                     </p>
@@ -106,13 +111,58 @@ function Productshownpage() {
                     {/* and more brand */}
                     <p className='text-blue-500 text-xs hover:underline cursor-pointer'>More Makeup from Kiss Beauty</p>
                   </div>
-
+                  {/* discount  */}
                   <div className='flex flex-col mt-7'>
                     <p className='text-[#f57224] text-[30px]'>৳ {((isdis[1]/100)*prize).toFixed()}</p>
                     <p className='flex text-sm gap-x-1'>
                       <p className='line-through text-gray-400'>৳ {prize}</p>
                       <p>{isdis[1]}%</p>
                     </p>
+                  </div>
+
+                  {/* color */}
+
+                  <div className='w-full mt-4'>
+                      <p className='flex gap-x-2'>
+                        <p className='text-gray-500 font-thin'>Color Family</p>
+                        <div className='flex flex-col gap-y-2'>
+                          <p>Black</p>
+                          <div className='flex flex-wrap w-full'>
+                            <div className='w-10 h-10 border border-black relative'>
+                              <img src={black} className='w-fit h-fit' alt="" />
+                              <div className='w-[40%] flex items-center justify-center h-[30%] absolute bottom-0 rounded-ss-full right-0 bg-[#f57224]'>
+                                <IoMdCheckmark color='white' size={"0.7rem"} />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </p>
+                  </div>
+
+                  {/* Quantity */}
+
+                  <div className='flex items-center gap-x-4 mt-3'>
+                      <p className='text-gray-500'>Quantity</p>
+                      <div className='flex items-center justify-center gap-x-3'>
+                          <button onClick={()=>qty<=1?setQty(1):setQty(qty-1)} disabled={qty==1?true:false} className={`w-7 h-7 ${qty==1?"cursor-no-drop":"cursor-pointer"} text-gray-500 transition duration-500 hover:bg-gray-300 flex items-center justify-center hover:text-gray-50`}>
+                            <RiSubtractFill />
+                          </button>
+                          <p>{qty}</p>
+                          <button onClick={()=>setQty(qty+1)} className='w-7 h-7 text-gray-500 transition duration-500 hover:bg-gray-300 flex items-center justify-center hover:text-gray-50'>
+                            <RiAddFill />
+                          </button>
+                      </div>
+                  </div>
+
+                  {/* buy & cart */}
+
+                  <div className='flex w-full h-12 px-2 mt-3 gap-x-3'>
+                    <button className='flex items-center text-white font-normal text-[1rem] justify-center w-1/2 bg-[#2ABBE8] hover:bg-[#26ABD4] transition duration-500 rounded-sm'>
+                          Buy Now
+                    </button>
+                    <button className='flex items-center text-white font-normal text-[1rem] justify-center w-1/2 bg-[#F57224] hover:bg-[#D0611E] transition duration-500 rounded-sm'>
+                          Add to Cart
+                    </button>
                   </div>
 
                 </div>
