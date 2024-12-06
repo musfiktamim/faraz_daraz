@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import CategoriesHeadBox from '../components/CategoriesHeadBox'
 import image1 from "../assets/images/image1.webp"
-import { BsBack } from 'react-icons/bs'
+import { BsBack, BsCash, BsFile } from 'react-icons/bs'
 import mall from "../assets/images/mall.png"
-import { AiOutlineFastBackward, AiOutlineFastForward } from 'react-icons/ai'
+import { AiOutlineFastBackward, AiOutlineFastForward, AiTwotoneSafetyCertificate } from 'react-icons/ai'
 import { SiSharex } from 'react-icons/si'
-import { IoShareSocial } from 'react-icons/io5'
+import { IoLocationOutline, IoShareSocial } from 'react-icons/io5'
 import { MdOutlineFavoriteBorder } from 'react-icons/md'
 import black from "../assets/images/color-black.webp"
 import { IoMdCheckmark } from 'react-icons/io'
 import { RiAddFill, RiSubtractFill } from 'react-icons/ri'
-import { BiInfoCircle } from 'react-icons/bi'
+import { BiInfoCircle, BiLocationPlus } from 'react-icons/bi'
 import { ImXing } from 'react-icons/im'
+import { NavLink } from 'react-router-dom'
+import { FaLocationDot } from 'react-icons/fa6'
+import { LuFileHeart } from 'react-icons/lu'
+import { PiNumberCircleSeven } from 'react-icons/pi'
 
 function Productshownpage() {
 
@@ -20,6 +24,7 @@ function Productshownpage() {
   let isdis = [true,57];
   let prize = 1200; 
   const [isInfoShow,setIsInfoShow] = useState(false)
+  const [isReturnShow,setIsReturnShow] = useState(false)
 
   const [qty,setQty] = useState(1)
 
@@ -169,10 +174,12 @@ function Productshownpage() {
                   </div>
 
                 </div>
-                <div className='md:w-1/3 md:flex hidden h-full'>
-                    <div className='w-full h-7 items-center border relative flex justify-between'>
-                        <p className='text-sm text-gray-500'>Delivery Options </p>
-                        <button onClick={()=>setIsInfoShow(!isInfoShow)}>
+                {/* delivery */}
+                <div className='md:w-1/3 md:flex gap-y-1 flex-col hidden h-full'>
+                    {/* info  */}
+                    <div className='w-full h-7  items-center relative flex justify-between'>
+                        <p className='text-gray-500 font-bold text-xs'>Delivery Options </p>
+                        <button className='text-sm text-gray-500 font-bold' onClick={()=>setIsInfoShow(!isInfoShow)}>
                           <BiInfoCircle />
                         </button>
                         {/* info dialog  */}
@@ -200,7 +207,7 @@ function Productshownpage() {
                                 {/* find more */}
                                 <div className='flex flex-col gap-y-4'>
                                   <p className='flex text-sm gap-x-1'>
-                                    <p className=' flex-nowrap font-bold'>Standard Delivery:</p> Enjoy delivery of your order directly to the doorstep!
+                                    <p className=' flex-nowrap font-bold'>Cash on Delivery Available</p>
                                   </p>
                                 <div>
                                 </div>
@@ -208,6 +215,86 @@ function Productshownpage() {
                             </div>      
                           </div>
                     </div>
+                    
+                    {/* location  */}
+                    <div className='w-full mt-2 py-2 gap-x-2 justify-between items-center flex'>
+                        <div className='flex items-start gap-x-1'>
+                          <IoLocationOutline size={"2rem"}/>
+                          <h1 className='text-sm'>Dhaka, Dhaka North, Banani Road No. 12 - 19</h1>
+                        </div>
+                        <NavLink className={"text-sm text-blue-600"}>CHANGE</NavLink>
+                    </div>
+                    {/* standart delivery  */}
+                    <div className='w-full mt-2 py-2 gap-x-2 justify-between items-center flex'>
+                        <div className='flex items-start gap-x-1'>
+                          <BsFile size={"1.3rem"}/>
+                          <div className='flex flex-col'>
+                            <h1 className='text-sm'>Standard Delivery</h1>
+                            <p className='text-xs text-gray-500'>Get by 9-12 Dec</p>
+                          </div>
+                        </div>
+                        <p className={"text-sm"}>৳ 60</p>
+                    </div>
+                    
+                    {/* Cash on Delivery Available */}
+                    <div className='w-full mt-2 gap-x-2 py-2 justify-between items-center flex'>
+                        <div className='flex items-start gap-x-1'>
+                          <BsCash size={"1.2rem"}/>
+                          <h1 className='text-sm'>Cash on Delivery Available</h1>
+                        </div>
+                    </div>
+                    {/* Return & Warranty   */}
+                    <div className='w-full mt-7 text-gray-500 relative text-xs flex justify-between px-1'>
+                        <p className='font-bold'>Return & Warranty </p>
+                        <button onClick={()=>setIsReturnShow(!isReturnShow)} className='text-sm'>
+                          <BiInfoCircle />
+                        </button>
+                          {/* return & warranty dialog */}
+                        <div className={`absolute transition-[height] ${!isReturnShow?"h-0 overflow-hidden":"h-auto px-4 pt-6 overflow-hidden border"} right-0 w-[200%] top-7 bg-white shadow-sm shadow-[#E1E1E1]`}>
+                            <h1 className='text-xl'>Delivery Options</h1>
+                            <div className='h-20 mt-3 gap-x-4 flex w-full'>
+                              <ImXing size={"1.5rem"} />
+                              <div className='h-full flex flex-col justify-between'>
+                                {/* find more */}
+                                <div className='flex flex-col gap-y-4'>
+                                  <p className='flex text-sm gap-x-1'>
+                                    <p className=' flex-nowrap font-bold'>Standard Delivery:</p> Enjoy delivery of your order directly to the doorstep!
+                                  </p>
+                                  <a target='_blank' className='text-blue-500 font-sans' href="https://helpcenter.daraz.com.bd/page/home?spm=a2a0e.pdp_revamp.0.0.53121ab5FcWcFu&pageId=25">
+                                  Find out more
+                                  </a>
+                                </div>
+                                <div>
+                                </div>
+                              </div>
+                            </div>
+                            {/* cash on dalivery */}
+                            <div className='h-auto mt-3 gap-x-4 flex w-full'>
+                              <ImXing size={"1.5rem"} />
+                                {/* find more */}
+                                <div className='flex flex-col gap-y-4'>
+                                  <p className='flex text-sm gap-x-1'>
+                                    <p className=' flex-nowrap font-bold'>Cash on Delivery Available</p>
+                                  </p>
+                                <div>
+                                </div>
+                              </div>
+                            </div>      
+                          </div>
+                    </div>
+
+                    {/* 7 days return */}
+
+                    <div className='w-full items-center gap-x-2 mt-3 flex'>
+                      <PiNumberCircleSeven color='gray' size={"1.5rem"} />
+                      <h1 className='text-sm'>7 Days Returns</h1>
+                    </div>
+                    {/* warenty */}
+                    <div className='w-full items-center gap-x-2 mt-3 flex'>
+                      <AiTwotoneSafetyCertificate color='gray' size={"1.5rem"} />
+                      <h1 className='text-sm'>Warranty not available</h1>
+                    </div>
+
                 </div>
           </div>
       </div>
