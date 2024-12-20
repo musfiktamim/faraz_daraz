@@ -90,12 +90,12 @@ function Home() {
 
 
   const [flasheSaleT, setFlasheSaleT] = useState(0)
-  const [flashSalesItem,setFlashSalesItem] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
-  const [flashSalesItem2,setFlashSalesItem2] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+  const [flashSalesItem, setFlashSalesItem] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+  const [flashSalesItem2, setFlashSalesItem2] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
 
   const [productsDivConsume, setProductsDivConsume] = useState(0)
   const [categoriesDivConsume, setCategoriesDivConsume] = useState(0)
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const calc1 = flashSalesItem.length - ((window.innerWidth > 768 ? document.getElementById("products").clientWidth : window.innerWidth) / 198) + (window.innerWidth > 768 ? 1 : 0)
     const calc2 = ((window.innerWidth > 768 ? document.getElementById("categories").clientWidth : window.innerWidth) / 170).toFixed();
@@ -108,16 +108,16 @@ function Home() {
     const scrollHeight = document.documentElement.scrollHeight;
     const scrollTop = document.documentElement.scrollTop;
     const calc = scrollHeight - (windowsHeight + scrollTop);
-    if(window.innerWidth>768){
+    if (window.innerWidth > 768) {
       if (calc == 0) {
         setLoading(true);
-        setTimeout(()=>{
-          setFlashSalesItem2((prev)=>[...prev,...flashSalesItem2])
+        setTimeout(() => {
+          setFlashSalesItem2((prev) => [...prev, ...flashSalesItem2])
           setLoading(false)
-        },10000)
+        }, 10000)
       }
-    }else{
-      
+    } else {
+
     }
   }
 
@@ -171,7 +171,7 @@ function Home() {
       </div>
       {/* Categories */}
       <div id='categories' className='m-auto mt-2 w-full h-10 md:w-[95%]'>
-          <h1 className='md:text-2xl text-lg text-[#f85606]'>Categoriess</h1>
+        <h1 className='md:text-2xl text-lg text-[#f85606]'>Categoriess</h1>
       </div>
       <div className='md:w-[95%] flex-wrap flex m-auto items-center justify-center overflow-hidden w-full'>
         {
@@ -188,7 +188,7 @@ function Home() {
         </div>
         <div className='w-full h-auto py-5 flex justify-center items-center'>
           {
-            loading?
+            loading ?
               <DNA
                 visible={true}
                 height="80"
@@ -196,12 +196,12 @@ function Home() {
                 ariaLabel="dna-loading"
                 wrapperStyle={{}}
                 wrapperClass="dna-wrapper"
-              />:null
+              /> : null
           }
         </div>
       </div>
 
-      
+
 
     </div>
   )
