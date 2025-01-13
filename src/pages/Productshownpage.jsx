@@ -512,9 +512,9 @@ function Rates({times}){
 }
 function RateLine({rate,alrate}){
   const [per,setPer] = useState(((rate/alrate)*100).toFixed());
-  console.log(per)
-  return(<div className='flex gap-x-2'>
-    <div className={`w-56 h-4 bg-gray-300 relative after:left-0 after:absolute after:contents-' ' ${per?`w-[${per}%]`:"w-0%"} after:bg-yellow-500 after:h-[100%] `}></div>
+  
+  return(<div className='flex w-full gap-x-2'>
+    <div className={`w-56 h-4 bg-gray-300 relative after:left-0 after:absolute after:contents-' ' after:w-[${per+"%"}] after:bg-yellow-500 after:h-[100%]`}></div>
     <p className='text-sm'>{rate}</p>
   </div>)
 }
